@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxing Timer</title>
+    <link rel="stylesheet" href="nature.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+    <!-- Таймер з кільцем -->
+    <div class="timer-wrapper">
+        <svg class="timer-svg" width="300" height="300" viewBox="0 0 300 300">
+            <circle class="timer-bg" cx="150" cy="150" r="140"></circle>
+            <circle class="timer-progress" cx="150" cy="150" r="140"></circle>
+        </svg>
+        <div class="timer-center">
+            <div class="timer-display" id="timer-display">30:00</div>
+            <div class="timer-controls">
+                <button id="start-btn" class="btn-glow">▶</button>
+                <button id="pause-btn" class="btn-glow" disabled>⏸</button>
+                <button id="reset-btn" class="btn-glow" disabled>⟳</button>
+            </div>
+            <div class="timer-options">
+                <button class="time-option btn-glow" data-time="300">5 min</button>
+                <button class="time-option btn-glow" data-time="600">10 min</button>
+                <button class="time-option btn-glow" data-time="900">15 min</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аудіо та відео -->
+    <audio id="player" loop>
+        <source src="https://cdn.glitch.com/eeaf6ebc-3ee8-45cf-aa54-1394e24c3353%2Fnature.mp3?v=1628699781050" type="audio/mp3">
+    </audio>
+
+    <video autoplay loop muted playsinline id="myVideo">
+        <source src="1.mp4" type="video/mp4">
+    </video>
+
+    <script src="nature.js"></script>
+</body>
+</html>
