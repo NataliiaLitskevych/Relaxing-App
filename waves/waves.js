@@ -1,5 +1,5 @@
 (function () {
-  /*** ELEMENTS ***/
+ 
   const display   = document.getElementById('timer-display');
   const startBtn  = document.getElementById('start-btn');
   const pauseBtn  = document.getElementById('pause-btn');
@@ -13,15 +13,12 @@
     return;
   }
 
-  /*** RING GEOMETRY ***/
-  // r беремо з атрибута <circle r="...">
   const r = parseFloat(ring.getAttribute('r'));
   const CIRC = 2 * Math.PI * r;
   ring.style.strokeDasharray = CIRC;
   ring.style.strokeDashoffset = 0;
 
-  /*** STATE ***/
-  const DEFAULT_SECONDS = 30 * 60; // 30 хв
+  const DEFAULT_SECONDS = 30 * 60; 
   let totalTime = DEFAULT_SECONDS;
   let remain    = totalTime;
   let running   = false;
@@ -29,20 +26,18 @@
   let rafId     = null;
   let lastTs    = null;
 
-  /*** BUTTON GLOW ANIMATION ***/
   function glowOnClick(btn){
     if (!btn) return;
-    btn.classList.remove('is-clicked');     // перезапуск анімації
-    void btn.offsetWidth;                   // reflow
+    btn.classList.remove('is-clicked');     
+    void btn.offsetWidth;                   
     btn.classList.add('is-clicked');
     btn.addEventListener('animationend', () => {
       btn.classList.remove('is-clicked');
     }, { once: true });
   }
 
-  /*** DISPLAY HELPERS ***/
   function formatTime(secFloat){
-    const sec = Math.ceil(secFloat); // округл. вгору щоб не мигало -00:01
+    const sec = Math.ceil(secFloat); 
     const m = Math.floor(sec / 60);
     const s = sec % 60;
     return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
@@ -53,12 +48,12 @@
   }
 
   function updateRing(){
-    // progress: 1 → повний круг; 0 → порожньо
+    
     const progress = remain / totalTime;
     ring.style.strokeDashoffset = CIRC * (1 - progress);
   }
 
-  /*** TIMER CONTROL ***/
+ 
   function startTimer(){
     if (running) return;
     running = true;
@@ -115,10 +110,8 @@
     resetBtn.disabled = false;
     pauseBtn.textContent = '⏸';
     fadeOutAudio(true);
-    // alert('Session complete!'); // опційно
   }
 
-  /*** RAF LOOP ***/
   function step(ts){
     if (!running) return;
     if (paused){
@@ -142,7 +135,6 @@
     rafId = requestAnimationFrame(step);
   }
 
-  /*** AUDIO FADE HELPERS ***/
   function fadeInAudio(){
     if (!audioEl) return;
     try {
@@ -187,10 +179,9 @@
     requestAnimationFrame(anim);
   }
 
-  /*** PRESET TIME BUTTONS ***/
   optionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      if (running) return;     // не дозволяємо зміну, поки таймер працює
+      if (running) return;    
       glowOnClick(btn);
       const secs = parseInt(btn.dataset.time, 10);
       if (!isNaN(secs)) {
@@ -202,7 +193,6 @@
     });
   });
 
-  /*** EVENT WIRES ***/
   startBtn.addEventListener('click', () => {
     glowOnClick(startBtn);
     startTimer();
@@ -218,7 +208,6 @@
     resetTimer();
   });
 
-  /*** INIT ***/
   updateDisplay();
   updateRing();
 })();

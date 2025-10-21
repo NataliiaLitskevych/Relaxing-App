@@ -25,7 +25,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: clamp(200px, 60vw, 300px);  /* автоматична адаптація */
+    width: clamp(200px, 60vw, 300px);  
     height: clamp(200px, 60vw, 300px);
     z-index: 2;
 }
@@ -69,13 +69,12 @@
 }
 
 .timer-display {
-    font-size: clamp(1.5rem, 5vw, 2.4rem); /* масштаб цифр */
+    font-size: clamp(1.5rem, 5vw, 2.4rem); 
     font-weight: bold;
-    color: #fff; /* робимо цифри білими */
+    color: #fff; 
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Кнопки */
 .timer-controls, .timer-options {
     display: flex;
     gap: 10px;

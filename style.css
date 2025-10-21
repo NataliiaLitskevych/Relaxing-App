@@ -10,6 +10,14 @@ h1 {
     font-family: "Roboto", sans-serif;
 }
 
+.tagline {
+  font-size: 1.2rem;
+  color: #a5b4fc;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+
+
 #btn-container {
     display: flex;
     justify-content: space-around;
