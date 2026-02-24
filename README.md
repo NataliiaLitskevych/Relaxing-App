@@ -40,7 +40,7 @@
 ## 🌐 Demo
 
 <p align="center">
-  <a href="https://nataliia-litskevych-relaxing.netlify.app/" target="_blank">
+  <a href="https://relaxing-app-nataliia-litskevych.netlify.app/" target="_blank">
     <img src="https://img.shields.io/badge/▶️ Try%20it%20now-4CAF50?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"/>
   </a>
 </p>
